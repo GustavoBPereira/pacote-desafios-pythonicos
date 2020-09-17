@@ -11,9 +11,9 @@ Retorne o resultado da string.
 """
 
 def verbing(s):
-    # +++ SUA SOLUÇÃO +++
-    return
-
+    if len(s) >= 3:
+        return f'{s}ing' if not s.endswith('ing') else f'{s}ly'
+    return s
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
 
