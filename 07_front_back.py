@@ -12,13 +12,27 @@ a-frente + b-frente + a-trás + b-trás
 """
 
 
-def front_back(a, b):
+def front_back_first_solution(a, b):
     a_half = int(len(a)/2) if len(a) % 2 == 0 else int(len(a)/2) + 1
     b_half = int(len(b)/2) if len(b) % 2 == 0 else int(len(b)/2) + 1
     a_front, b_front = a[0:a_half], b[0:b_half]
     a_back, b_back = a[a_half::], b[b_half::]
 
     return f'{a_front}{b_front}{a_back}{b_back}'
+
+
+def front_back(a, b):
+    a_half, b_half = half_string(a), half_string(b)
+    a_front, a_back = cut_string(a, a_half)
+    b_front, b_back = cut_string(b, b_half)
+
+    return f'{a_front}{b_front}{a_back}{b_back}'
+
+def half_string(s):
+    return int(len(s)/2) if len(s) % 2 == 0 else int(len(s)/2) + 1
+
+def cut_string(s, position):
+    return s[0:position], s[position::]
 
 
 # --- Daqui para baixo são apenas códigos auxiliáries de teste. ---
